@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="author" content="Cali Castle" />
+    <meta name="description" content="Cali and Rita's celebration page" />
+    <meta name="keywords" content="Cali,Rita,Fifi" />
+
+    <title>❤️ Cali & Rita ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1 class="callout">❤ Cali & Rita ❤</h1>
+    <h2 class="description">Have been perfect to each other for</h2>
+    <div class="timer">
+        <b class="numeric days">00</b>&nbsp;days&nbsp;<b class="numeric hours">00</b>&nbsp;hours&nbsp;<b class="numeric minutes">00</b>&nbsp;minutes&nbsp;<b class="numeric seconds">00</b>&nbsp;seconds
+    </div>
+</div>
+
+<script>
+    var interval = 1000;
+
+    var dayHolder = document.querySelector(".timer > .days"),
+            hourHolder = document.querySelector(".timer > .hours"),
+            minuteHolder = document.querySelector(".timer > .minutes"),
+            secondHolder = document.querySelector(".timer > .seconds");
+
+    function ShowCountDown(year, month, day) {
+        var now = new Date();
+        var date = new Date(year, month - 1, day);
+        var leftTime = now.getTime() - date.getTime();
+        var beenTimeInSeconds = parseInt(leftTime / 1000);
+
+        var beenDays = Math.floor(beenTimeInSeconds / (60 * 60 * 24));
+        var beenHours = Math.floor((beenTimeInSeconds - beenDays * 24 * 60 * 60) / 3600);
+        var beenMinutes = Math.floor((beenTimeInSeconds - beenDays * 24 * 60 * 60 - beenHours * 3600) / 60);
+        var beenSeconds = Math.floor(beenTimeInSeconds - beenDays * 24 * 60 * 60 - beenHours * 3600 - beenMinutes * 60);
+
+        dayHolder.innerHTML = beenDays;
+        hourHolder.innerHTML = beenHours;
+        minuteHolder.innerHTML = beenMinutes;
+        secondHolder.innerHTML = beenSeconds;
+    }
+
+    window.setInterval(function () {
+        ShowCountDown(2016, 10, 13);
+    }, interval);
+
+    setTimeout(function () {
+        document.querySelector(".callout").setAttribute("class", "callout bumping");
+    }, 850);
+</script>
+
+</body>
+</html>
