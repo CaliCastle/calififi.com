@@ -138,11 +138,16 @@ h1 {
     }
 
     .callout {
-        font-size: 60px;
+        font-size: 55px;
+        letter-spacing: 1px !important;
     }
 
     .timer {
         font-size: 28px;
+        max-width: 76%;
+        white-space: pre-line;
+        word-wrap: break-word;
+        line-height: 35px;
     }
 
     .numeric {
